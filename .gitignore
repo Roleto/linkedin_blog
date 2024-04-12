@@ -136,4 +136,4 @@ dist
 .pnp.*
 
 #myIgnores
-my-blog-backend/mogo-db-data/WiredTiger.lock
+my-blog-backend/mogo-db-data/
