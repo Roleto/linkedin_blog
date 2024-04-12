@@ -4,6 +4,7 @@ import articles from "./article-content";
 import NotFound from "./NotFound";
 import axios from 'axios';
 import CommentList from "../components/CommentsList";
+import AddCommentFrom from "../components/AddCommentFrom";
 
 const ArticlePage = () => {
 
@@ -23,9 +24,7 @@ const ArticlePage = () => {
 
     const addUpvote = async () => {
         const res = await axios.put(`/api/articles/${articleId}/upvote`);
-        const updateArticle = res.data;
-        setArticleInfo(updateArticle);
-        // setArticleInfo(res.data);
+        setArticleInfo(res.data);
     }
 
     if (!article) {
@@ -41,6 +40,7 @@ const ArticlePage = () => {
             {article.content.map((p, i) => (
                 <p key={i} >{p}</p>
             ))}
+            <AddCommentFrom articleName={articleId} onArticleUpdated={updateArticle => setArticleInfo(updateArticle)} />
             <CommentList comments={articleInfo.comments} />
         </>
     );
