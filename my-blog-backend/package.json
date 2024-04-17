@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "npx nodemon src/server.js",
+    "db_run": "mongod.exe --dbpath=\"./mogo-db-data\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
