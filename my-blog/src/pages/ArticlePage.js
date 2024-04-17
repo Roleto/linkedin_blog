@@ -5,12 +5,15 @@ import NotFound from "./NotFound";
 import axios from 'axios';
 import CommentList from "../components/CommentsList";
 import AddCommentFrom from "../components/AddCommentFrom";
+import useUser from "../hooks/useUser";
 
 const ArticlePage = () => {
 
     const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
-
     const { articleId } = useParams();
+
+    const { user, isLoading } = useUser();
+
     useEffect(() => {
         const loadArticleInfo = async () => {
 
@@ -34,13 +37,19 @@ const ArticlePage = () => {
         <>
             <h1>{article.title}</h1>
             <div className="upvotes-section">
-                <button onClick={addUpvote}>Upvote</button>
+                {user
+                    ? <button onClick={addUpvote}>Upvote</button>
+                    : <button>Log in to upvote</button>
+                }
                 <p>this article has {articleInfo.upvotes} upvote(s)</p>
             </div>
             {article.content.map((p, i) => (
                 <p key={i} >{p}</p>
             ))}
-            <AddCommentFrom articleName={articleId} onArticleUpdated={updateArticle => setArticleInfo(updateArticle)} />
+            {user
+                ? <AddCommentFrom articleName={articleId} onArticleUpdated={updateArticle => setArticleInfo(updateArticle)} />
+                : <button>Log in to write comment.</button>
+            }
             <CommentList comments={articleInfo.comments} />
         </>
     );
