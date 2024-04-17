@@ -4,19 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
+import config from './components/config';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "",
-  authDomain: "my-react-blog-7ab08.firebaseapp.com",
-  projectId: "my-react-blog-7ab08",
-  storageBucket: "my-react-blog-7ab08.appspot.com",
-  messagingSenderId: "835863943349",
-  appId: "1:835863943349:web:9c3a4cccd553d3356286fc"
-};
+const firebaseConfig = config;
 
 // Initialize Firebase
 // eslint-disable-next-line
