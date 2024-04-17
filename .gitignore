@@ -137,7 +137,6 @@ dist
 
 #myIgnores
 node_modules
-mogo
-credentials
-# my-blog-backend/mogo-db-data/
-# my-blog-backend/credentials.json
+my-blog/node_modules/
+my-blog-backend/mogo-db-data/
+my-blog-backend/credentials.json
