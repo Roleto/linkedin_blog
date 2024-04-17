@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAeuIHFZ3_h7AGTbvBhv9Bt1R78dNi26NQ",
+  authDomain: "my-react-blog-7ab08.firebaseapp.com",
+  projectId: "my-react-blog-7ab08",
+  storageBucket: "my-react-blog-7ab08.appspot.com",
+  messagingSenderId: "835863943349",
+  appId: "1:835863943349:web:9c3a4cccd553d3356286fc"
+};
+
+// Initialize Firebase
+// eslint-disable-next-line
+const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

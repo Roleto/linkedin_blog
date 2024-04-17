@@ -136,4 +136,7 @@ dist
 .pnp.*
 
 #myIgnores
+node_modules
+my-blog/node_modules/
 my-blog-backend/mogo-db-data/
+my-blog-backend/credentials.json
