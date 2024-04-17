@@ -33,6 +33,11 @@ const ArticlePage = () => {
     if (!article) {
         return <NotFound />
     }
+
+    if (isLoading) {
+        return <h1>is Loading ...</h1>
+    }
+
     return (
         <>
             <h1>{article.title}</h1>
