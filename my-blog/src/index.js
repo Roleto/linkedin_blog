@@ -9,12 +9,10 @@ import config from './components/config';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = config;
 
 // Initialize Firebase
 // eslint-disable-next-line
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(config);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
