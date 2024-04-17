@@ -20,9 +20,10 @@ const ArticlePage = () => {
             const headers = token ? { authtoken: token } : {};
             const res = await axios.get(`/api/articles/${articleId}`, { headers });
             const newArticleInfo = res.data;
+            console.log(newArticleInfo);
             setArticleInfo(newArticleInfo);
         }
-        if (isLoading) {
+        if (!isLoading) {
             loadArticleInfo();
         }
     }, [isLoading, user]);
@@ -48,7 +49,7 @@ const ArticlePage = () => {
             <h1>{article.title}</h1>
             <div className="upvotes-section">
                 {user
-                    ? <button onClick={addUpvote}>{articleInfo.canUpvote ? 'Up vote' : 'Already Upvoted'}</button>
+                    ? <button onClick={addUpvote}>{articleInfo.canUpvote ? 'Up vote' : 'Already Up vote'}</button>
                     : <button>Log in to upvote</button>
                 }
                 <p>this article has {articleInfo.upvotes} upvote(s)</p>

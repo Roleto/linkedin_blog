@@ -19,7 +19,7 @@ const Navbar = () => {
                 </li>
             </ul>
             <div className='nav-right'>
-                {!user
+                {user.user
                     ? <button onClick={() => {
                         signOut(getAuth());
                     }}>Log out</button>
