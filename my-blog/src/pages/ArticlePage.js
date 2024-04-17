@@ -9,24 +9,29 @@ import useUser from "../hooks/useUser";
 
 const ArticlePage = () => {
 
-    const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
+    const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [], canUpvote: false });
     const { articleId } = useParams();
 
     const { user, isLoading } = useUser();
 
     useEffect(() => {
         const loadArticleInfo = async () => {
-
-            const res = await axios.get(`/api/articles/${articleId}`);
+            const token = user && await user.getIdToken();
+            const headers = token ? { authtoken: token } : {};
+            const res = await axios.get(`/api/articles/${articleId}`, { headers });
             const newArticleInfo = res.data;
             setArticleInfo(newArticleInfo);
         }
-        loadArticleInfo();
-    }, []);
+        if (isLoading) {
+            loadArticleInfo();
+        }
+    }, [isLoading, user]);
     const article = articles.find(x => x.name === articleId);
 
     const addUpvote = async () => {
-        const res = await axios.put(`/api/articles/${articleId}/upvote`);
+        const token = user && await user.getIdToken();
+        const headers = token ? { authtoken: token } : {};
+        const res = await axios.put(`/api/articles/${articleId}/upvote`, null, { headers });
         setArticleInfo(res.data);
     }
 
@@ -43,7 +48,7 @@ const ArticlePage = () => {
             <h1>{article.title}</h1>
             <div className="upvotes-section">
                 {user
-                    ? <button onClick={addUpvote}>Upvote</button>
+                    ? <button onClick={addUpvote}>{articleInfo.canUpvote ? 'Up vote' : 'Already Upvoted'}</button>
                     : <button>Log in to upvote</button>
                 }
                 <p>this article has {articleInfo.upvotes} upvote(s)</p>
