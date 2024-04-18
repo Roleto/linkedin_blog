@@ -141,3 +141,9 @@ mongo-db-data
 node_modules
 credentials.json
 my-blog-backend/credentials.json
+my-blog-backend/mogo-db-data/mongod.lock
+my-blog-backend/mogo-db-data/WiredTiger.lock
+my-blog-backend/mogo-db-data/WiredTiger.turtle
+my-blog-backend/mogo-db-data/WiredTiger.wt
+my-blog-backend/mogo-db-data/diagnostic.data/metrics.2024-04-11T16-54-41Z-00000
+my-blog-backend/mogo-db-data/journal/WiredTigerLog.0000000002
