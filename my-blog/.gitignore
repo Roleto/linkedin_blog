@@ -138,9 +138,3 @@ dist
 #myIgnores
 node_modules
 build
-my-blog/node_modules/
-my-blog-backend/node_modules/
-my-blog-backend/mogo-db-data/
-my-blog-backend/credentials.json
-my-blog/node_modules/.cache/.eslintcache
-my-blog/src/components/config.js
