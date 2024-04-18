@@ -73,5 +73,5 @@ const articles = [
         ]
     },
 ];
-
+// [{name: 'learn-react',upvotes: 0,comments: [],}, {name: 'learn-node',upvotes: 0,comments: [],}, {name: 'mongodb',upvotes: 0,comments: [],},]
 export default articles;

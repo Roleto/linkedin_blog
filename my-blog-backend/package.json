@@ -5,14 +5,18 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "npx nodemon src/server.js",
+    "db_run": "mongod.exe --dbpath=\"./mogo-db-data\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
     "mongodb": "^6.5.0"
   },
   "devDependencies": {
